@@ -1,0 +1,55 @@
+Video1
+1) Docker is a containerization tool
+2) Docker Installation
+  a) Create Ubuntu/AWS Linux Server
+  b) Install Docker
+  c) We need to register in hub.docker.com (This is the public Repository which can store the docker images/packages)
+  d) Installing Docker using Docker provided script (sudo curl -fsSL get.docker.com | /bin/bash)
+  e) Add the ubuntu user to docker group (sudo usermod -aG docker ubuntu)
+  f) Resource utilization is good when we use dockers
+3) Docker Concepts
+  1) Image : A read-only snapshot(package which contains application code and required software)
+  2) Container : A running instance of our application
+  3) Registry/Repository : Store the images/packages
+  4) Docker Engine : A program that creates, ships and runs application containerization
+  5) Docker File : File, used to create a docker images/packages
+    Docker File -> Docker Image -> Register in docker hub -> Docker Container
+	
+Video2:
+
+1) Dockerising a java application
+  a) Dockerfile -> It will instructions in creating the images/package
+  
+2) Need to install Java and Maven on Ubuntu
+3) Docker Image Commands
+  a) docker build -t momitha/java-web-app:1 . (It is used to run the docker image)
+  b) docker images or docker image ls (to list the images)
+  c) docker push momitha/java-web-app:1 (To push to repository)
+  d) Authenticating with docker hub repository (docker login -u momitha -p Nagisita@123 https://hub.docker.com/)
+  e) docker images -q (It will display only the image Ids)
+  f) docker inspect momitha/java-web-app:1
+  g) docker rmi momitha/java-web-app:1 (It will delete single image)
+  h) docker rmi imag1 imag2 (It will remove multiple images) or docker rmi $(docker images -q)
+  i) docker history momitha/java-web-app:1 (It will display the layers of the image)
+  j) docker pull momitha/java-web-app:1 (To download the image from repo)
+  k) docker image prune (It will remove all the unsed images)
+  l) Dangling Image is the image which doesn't have any reference with the repository
+  
+ 4) Docker Container Commands
+   a) docker run -d -p 8080:8080 --name javawebappcontainer momitha/java-web-app:1 (It will create a container and start the container)
+   b) docker create -p 8080:8080 --name javawebappcontainer momitha/java-web-app:1 (It will create the container but don't start the container)
+   c) docker ps OR docker container ls (It will display the running containers)
+   d) docker ps -a OR docker container la -a (It will display all the running and stopped containers)
+   e) docker start <ContainerIdORName> (It will start the container)
+   f) docker stop
+   g) docker restart
+   h) docker pause
+   i) docker unpause
+   j) docker rm (To remove the stopped container)
+   k) docker rm -f (To remove the container which is running)
+   l) docker rm -f $(docker ps -aq) (It will remove all the running and stopped containers)
+   
+  
+ 
+ 
+  
